@@ -5,17 +5,15 @@ $faker = Faker\Factory::create();
 
 
 
-for ($i=1;$i<11;$i++){
-$arr[$i]=[$faker->name(),$faker->email(), mt_rand(0,10)];}
-    foreach ($arr as $a=>$b){
-        foreach ($b as $c) {
-        $d[]=$c;
-}
+$us = [];
+for ($i=1;$i<10;$i++){
+$user = array("name"=>$faker->name(),"email"=>$faker->email(),"score"=>mt_rand(0,10));
+array_push($us,$user);
+
 }
 
-
-$file = fopen('newjson.json', 'a');
-fwrite($file, json_encode($arr));
+$file = fopen('newjson.json', 'w');
+fwrite($file, json_encode($us));
 fclose($file);
 
 
